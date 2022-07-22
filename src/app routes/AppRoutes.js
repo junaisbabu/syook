@@ -5,6 +5,7 @@ import Login from "../components/login/Login";
 import Result from "../components/result/Result";
 import Tabs from "../components/tabs/Tabs";
 import { Navigate } from "react-router-dom";
+import SelectedDishes from "../components/selected dishes/SelectedDishes";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/main" element={<Tabs />} />
       <Route path="/dishes" element={<Dishes />} />
+      <Route path="/selecteddishes" element={<SelectedDishes />} />
       <Route path="/result" element={<Result />} />
     </Routes>
   );

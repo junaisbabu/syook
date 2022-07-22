@@ -25,7 +25,7 @@ function DishesList({ item }) {
   return (
     <div className="card">
       <div className="card-header bg-dark text-light">
-        <h1 className="card-title">{item.name}</h1>
+        <h1 className="card-title m-0">{item.name}</h1>
       </div>
       <div className="card-body">
         <ul className="list-group" onClick={handleSelection}>

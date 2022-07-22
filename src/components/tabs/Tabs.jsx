@@ -1,19 +1,33 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
-import './tabs.css'
+import "./tabs.css";
 
 function Tabs() {
-    
+  const navigate = useNavigate();
+
+  const { votes } = useContext(Context);
+
   return (
-    <div className="tabs-container row">
-      <nav className="bg-dark">
+    <div className="tabs-container">
+      <nav>
         <ul className="nav">
           <li className="nav-item">
-            <NavLink to="/dishes">Dishes</NavLink>
+            <button
+              className="btn btn-dark text-light"
+              onClick={() => navigate("/dishes")}
+            >
+              Dishes
+            </button>
           </li>
           <li className="nav-item">
-            <NavLink to='/selecteddishes'>Selected Dishes</NavLink>
+            <button
+              className="btn btn-dark text-light"
+              disabled={votes.length === 0 ? true : false}
+              onClick={() => navigate("/selecteddishes")}
+            >
+              Selected Dishes
+            </button>
           </li>
         </ul>
       </nav>

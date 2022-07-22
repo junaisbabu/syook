@@ -10,8 +10,9 @@ const fetchFn = () => {
 
 function Login() {
   const [users, setUsers] = useState();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,15 +22,14 @@ function Login() {
     });
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     users.map((item) => {
-      console.log(item.username, item.password);
-      console.log(username);
-      console.log(password);
-
       if (item.username === username && item.password === password) {
-        navigate("/dishes");
+        setErr(false);
+        navigate("/main");
+      } else if (users.length) {
+        setErr(true);
       }
     });
   };
@@ -40,21 +40,27 @@ function Login() {
         <div className="card-header">
           <h1>LOG IN</h1>
         </div>
+
         <form className="card-body" onSubmit={handleSubmit}>
+          {err && (
+            <div className="alert alert-danger">
+              <p>Invalid Username/Password</p>
+            </div>
+          )}
           <div className="mb-3">
-            <label htmlfor="username" className="form-label">
-              username
+            <label htmlFor="username" className="form-label">
+              Username
             </label>
             <input
               type="text"
               className="form-control"
               id="username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(event) => setUsername(event.target.value)}
             />
           </div>
           <div className="mb-3">
-            <label htmlfor="password" className="form-label">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
@@ -62,7 +68,7 @@ function Login() {
               className="form-control"
               id="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
             />
           </div>
 

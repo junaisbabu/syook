@@ -5,10 +5,9 @@ import { Context } from "../../context/context";
 function Result() {
   const navigate = useNavigate();
   const { votes } = useContext(Context);
-  console.log(votes);
   return (
-    <div className="container col-sm-10 col-md-6">
-      <table class="table table-dark table-striped mt-5">
+    <div className="container col-sm-7 col-md-4">
+      <table className="table table-dark table-striped mt-5">
         <thead>
           <tr>
             <th scope="col">Rank</th>
@@ -37,16 +36,22 @@ function Result() {
 
       <div className="btn-container d-flex justify-content-center">
         <button
-          className="btn btn-warning m-2"
+          className="btn btn-sm btn-warning m-2"
           onClick={() => navigate("/dishes")}
         >
-          Edit
+          Go back
         </button>
         <button
-          className="btn btn-danger m-2"
+          className="btn btn-sm btn-danger m-2"
           onClick={() => navigate("/login")}
         >
           Logout
+        </button>
+        <button
+          className="btn btn-sm btn-secondary m-2"
+          onClick={() => navigate("/main")}
+        >
+          Main Page
         </button>
       </div>
     </div>

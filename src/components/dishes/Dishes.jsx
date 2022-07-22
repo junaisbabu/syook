@@ -13,8 +13,8 @@ function Dishes() {
       <div className="dishes-container container">
         <div className="row justify-content-center">
           {dishes &&
-            dishes.map((item) => {
-              return <DishesList item={item} />;
+            dishes.map((item, index) => {
+              return <DishesList item={item} key={index} />;
             })}
         </div>
       </div>
