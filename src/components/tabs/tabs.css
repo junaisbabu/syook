@@ -1,0 +1,15 @@
+.tabs-container {
+    display: flex;
+    justify-content: center;
+}
+.tabs-container .nav {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs-container .nav-item {
+    background-color: gainsboro;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
